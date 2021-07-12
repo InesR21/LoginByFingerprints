@@ -1,0 +1,8 @@
+export { default as Background } from './Background'
+export { default as Button } from './Button'
+export { default as Paragraph } from './Paragraph'
+export { default as Title } from './Title'
+export { default as Logo } from './Logo'
+export { default as Input } from './Input'
+export { default as Header } from './Header'
+export { default as Loading } from './Loading'
