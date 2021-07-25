@@ -37,22 +37,11 @@ export default ({navigation}) => {
             <Text style={styles.UserFolowersTitle}>Folowers</Text>
             <Text style={styles.UserFolowersDesc}>19566</Text>
           </View>
+          <View style={styles.UserSeprator} />
           <View>
             <Text style={styles.UserFolowingTitle}>Folowing</Text>
             <Text style={styles.UserFolowingDesc}>195666</Text>
           </View>
-        </View>
-        <View>
-          <Button
-            mode="outlined"
-            onPress={() =>
-              navigation.reset({
-                index: 0,
-                routes: [{name: 'Home'}],
-              })
-            }>
-            Sigueme
-          </Button>
         </View>
       </View>
     </ImageBackground>
@@ -68,44 +57,50 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: 'transparent',
   },
+  userDatos: {
+    justifyContent: 'flex-end',
+    alignSelf: 'stretch',
+    flex: 0.8,
+    backgroundColor: 'transparent',
+  },
   container: {
-    flex: 0.5,
-    width: width,
-    height: '25%',
-    position: 'absolute',
-    bottom: 0,
-    alignSelf: 'baseline',
+    flex: 0.2,
+    alignSelf: 'stretch',
     backgroundColor: '#fff',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-  },
-  userDatos: {
-    marginTop: 10,
-    justifyContent: 'flex-end',
-    alignSelf: 'flex-start',
   },
   UserName: {
     fontSize: 21,
     color: theme.colors.primary,
     fontWeight: 'bold',
-    marginStart: 12,
+    marginStart: 25,
   },
   UserDesc: {
     fontSize: 15,
     lineHeight: 21,
-    textAlign: 'center',
+    marginStart: 25,
     marginBottom: 12,
   },
-
+  userSocial: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+  },
+  UserSeprator:{
+    borderEndWidth: 0.5,
+    borderEndColor: theme.colors.secondary,
+    marginLeft: 50,
+    marginRight: 50,
+    height: '80%',
+  },
   UserFolowersTitle: {
     fontSize: 12,
     color: theme.colors.secondary,
-    marginStart: 12,
+    
   },
   UserFolowersDesc: {
     fontSize: 15,
     lineHeight: 21,
-    textAlign: 'center',
     marginBottom: 12,
     fontWeight: 'bold',
   },
@@ -113,18 +108,13 @@ const styles = StyleSheet.create({
   UserFolowingTitle: {
     fontSize: 12,
     color: theme.colors.secondary,
-    marginStart: 12,
+    
   },
   UserFolowingDesc: {
     fontSize: 15,
     lineHeight: 21,
-    textAlign: 'center',
     marginBottom: 12,
     fontWeight: 'bold',
-  },
-  userSocial: {
-    flexDirection: 'row',
-    alignSelf: 'center',
   },
   eye: {
     marginTop: 10,
