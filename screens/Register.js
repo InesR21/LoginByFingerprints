@@ -8,6 +8,7 @@ import {
   passwordValidator,
   nameValidator,
 } from '../helpers/validators';
+import {firebaseAuth} from '../enviroment/config.js';
 
 export default function RegisterScreen({navigation}) {
   const [name, setName] = useState({value: '', error: ''});
@@ -25,10 +26,26 @@ export default function RegisterScreen({navigation}) {
       return;
     }
     console.log('registrado', name.value, email.value, password.value);
-    navigation.reset({
-      index: 0,
-      routes: [{name: 'Profile'}],
-    });
+    handleSignUp(name.value, email.value, password.value);
+  };
+
+  const handleSignUp = (name, email, password) => {
+    firebaseAuth().createUserWithEmailAndPassword(email, password)
+      .then((user) => {
+        console.log('user created', user);
+ /*        firebaseAuth()
+          .signInWithEmailAndPassword(email, password)
+          .then(() => {
+            console.log('user logged in', user);
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'Profile'}],
+            });
+          }); */
+      })
+      .catch((err) => {
+        console.log('error', err);
+      });
   };
 
   return (
